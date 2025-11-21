@@ -21,6 +21,7 @@ const SearchResults = () => {
     const [selectedGenre, setSelectedGenre] = useState('');
     const [actorName, setActorName] = useState('');
     const [selectedYear, setSelectedYear] = useState('');
+    const [minRating, setMinRating] = useState(0);
     const [showFilters, setShowFilters] = useState(false);
 
     useEffect(() => {
@@ -42,7 +43,7 @@ const SearchResults = () => {
         setPage(1);
         setMovies([]);
         setHasMore(true);
-    }, [query, selectedGenre, actorName, selectedYear]);
+    }, [query, selectedGenre, actorName, selectedYear, minRating]);
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -51,12 +52,13 @@ const SearchResults = () => {
 
             let results = [];
 
-            if (selectedGenre || actorName || selectedYear) {
+            if (selectedGenre || actorName || selectedYear || minRating > 0) {
                 // Advanced Search / Discover
                 let params = {};
 
                 if (selectedGenre) params.with_genres = selectedGenre;
                 if (selectedYear) params.primary_release_year = selectedYear;
+                if (minRating > 0) params['vote_average.gte'] = minRating;
 
                 if (actorName) {
                     const people = await searchPerson(actorName);
@@ -94,7 +96,7 @@ const SearchResults = () => {
         } else {
             fetchMovies();
         }
-    }, [query, selectedGenre, actorName, selectedYear, page]);
+    }, [query, selectedGenre, actorName, selectedYear, minRating, page]);
 
     const handleLoadMore = () => {
         setPage(prev => prev + 1);
@@ -118,7 +120,7 @@ const SearchResults = () => {
             </div>
 
             {showFilters && (
-                <div className="bg-slate-800 p-4 rounded-lg mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-in fade-in slide-in-from-top-4">
+                <div className="bg-slate-800 p-4 rounded-lg mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-in fade-in slide-in-from-top-4">
                     <div>
                         <label className="block text-slate-400 mb-2 text-sm">Genere</label>
                         <select
@@ -153,6 +155,23 @@ const SearchResults = () => {
                             max={new Date().getFullYear() + 5}
                             className="w-full bg-slate-900 text-white p-3 rounded border border-slate-700 focus:border-blue-500 focus:outline-none"
                         />
+                    </div>
+                    <div>
+                        <label className="block text-slate-400 mb-2 text-sm">Voto Minimo: {minRating}</label>
+                        <input
+                            type="range"
+                            min="0"
+                            max="10"
+                            step="1"
+                            value={minRating}
+                            onChange={(e) => setMinRating(Number(e.target.value))}
+                            className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500"
+                        />
+                        <div className="flex justify-between text-xs text-slate-500 mt-1">
+                            <span>0</span>
+                            <span>5</span>
+                            <span>10</span>
+                        </div>
                     </div>
                 </div>
             )}
