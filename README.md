@@ -3,7 +3,7 @@
 **MovieTracker** è una moderna Web App sviluppata con **React** e **Vite** che ti permette di esplorare il mondo del cinema, tenere traccia dei film che vuoi vedere e di quelli che hai già visto.
 
 ![MovieTracker Preview](https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2525&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
-*(Sostituisci questo link con uno screenshot reale della tua app se disponibile)*
+
 
 ## ✨ Funzionalità Principali
 
