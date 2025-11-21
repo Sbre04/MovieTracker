@@ -1,0 +1,52 @@
+export const mockMovies = [
+    {
+        id: 1,
+        title: "Inception",
+        overview: "Dom Cobb is a skilled thief, the absolute best in the dangerous art of extraction, stealing valuable secrets from deep within the subconscious during the dream state.",
+        poster_path: null,
+        backdrop_path: null,
+        vote_average: 8.8,
+        release_date: "2010-07-15",
+        mock_image: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070&auto=format&fit=crop", // Abstract movie-like image
+    },
+    {
+        id: 2,
+        title: "The Dark Knight",
+        overview: "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets.",
+        poster_path: null,
+        backdrop_path: null,
+        vote_average: 9.0,
+        release_date: "2008-07-16",
+        mock_image: "https://images.unsplash.com/photo-1478720568477-152d9b164e63?q=80&w=2060&auto=format&fit=crop",
+    },
+    {
+        id: 3,
+        title: "Interstellar",
+        overview: "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+        poster_path: null,
+        backdrop_path: null,
+        vote_average: 8.6,
+        release_date: "2014-11-05",
+        mock_image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
+    },
+    {
+        id: 4,
+        title: "Dune: Part Two",
+        overview: "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
+        poster_path: null,
+        backdrop_path: null,
+        vote_average: 8.3,
+        release_date: "2024-02-27",
+        mock_image: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1976&auto=format&fit=crop",
+    },
+    {
+        id: 5,
+        title: "Oppenheimer",
+        overview: "The story of J. Robert Oppenheimer's role in the development of the atomic bomb during World War II.",
+        poster_path: null,
+        backdrop_path: null,
+        vote_average: 8.1,
+        release_date: "2023-07-19",
+        mock_image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop",
+    }
+];
