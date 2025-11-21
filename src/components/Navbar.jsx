@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Menu, X, Filter } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = ({ toggleMobileMenu }) => {
     const [query, setQuery] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
+
+    // Reset search query when navigating away from search page
+    useEffect(() => {
+        if (!location.pathname.startsWith('/search')) {
+            setQuery('');
+        }
+    }, [location.pathname]);
 
     const handleSearch = (e) => {
         e.preventDefault();
